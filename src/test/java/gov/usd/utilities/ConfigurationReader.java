@@ -1,4 +1,4 @@
-package com.cbt.utilities;
+package gov.usd.utilities;
 
 import java.io.FileInputStream;
 import java.util.Properties;

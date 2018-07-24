@@ -1,7 +1,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="WebOrders Automation Regression Tests" verbose="2">
+<suite name="Regression test" verbose="2">
 
-	<test name="WebOrders Automation Regression Tests">
+	<test name="Regression test">
 		<packages>
 			<package name=".*"></package>
 		</packages>
