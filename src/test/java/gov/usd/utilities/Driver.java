@@ -1,4 +1,4 @@
-package com.cbt.utilities;
+package gov.usd.utilities;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
