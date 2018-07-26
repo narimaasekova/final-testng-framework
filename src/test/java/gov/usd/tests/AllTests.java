@@ -11,7 +11,7 @@ public class AllTests extends TestBase {
 		@Test(description="This is example with reports") //short explanation what to test
 		public void positiveloginTest() {
 			// name of the test
-			extentLogger = report.createTest("Positive login test"); //for report, use in every test - change the name inside
+			extentLogger = report.createTest("Positive login7 test"); //for report, use in every test - change the name inside
 			
 			
 			
