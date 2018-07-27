@@ -2,6 +2,7 @@ package gov.usd.tests;
 
 import org.testng.annotations.Test;
 
+import gov.usd.TestBase.TestBase;
 import gov.usd.utilities.Driver;
 
 public class AllTests extends TestBase {
