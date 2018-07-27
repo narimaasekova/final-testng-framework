@@ -1,4 +1,4 @@
-package gov.usd.tests;
+package gov.usd.TestBase;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
