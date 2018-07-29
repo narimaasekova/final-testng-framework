@@ -5,6 +5,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
@@ -41,7 +42,7 @@ public abstract class TestBase {
 	public void setUp() {
 		driver = Driver.getDriver();
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		driver.manage().window().fullscreen();
+	//	driver.manage().window().fullscreen();
 
 	}
 
@@ -65,7 +66,7 @@ public abstract class TestBase {
 		} else if (result.getStatus() == ITestResult.SKIP) {
 			extentLogger.skip("Test Case Skipped is " + result.getName());
 		}
-		Driver.closeDriver();
+		
 	}
 
 	@AfterTest
@@ -73,4 +74,10 @@ public abstract class TestBase {
 		report.flush();
 	}
 
+	@AfterClass
+	public void setUpClose() {
+	//	Driver.closeDriver();
+	}
+	
+	
 }
