@@ -3,7 +3,12 @@
 
 	<test name="Regression test">
 		<packages>
-			<package name=".*"></package>
+		
+		<package name ="gov.usd.tests"></package>
+		
+		
+		
+		
 		</packages>
 	</test>
 

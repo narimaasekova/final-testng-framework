@@ -16,12 +16,12 @@ import gov.usd.utilities.BrowserUtils;
 import gov.usd.utilities.ConfigurationReader;
 
 public class SPA_574_TC extends TestBase {
-	
-	HomePage hp=new HomePage();
-
-	ProfilesStatePage psp = new ProfilesStatePage();
 
 	BrowserUtils br = new BrowserUtils();
+
+	HomePage hp = new HomePage();
+
+	ProfilesStatePage psp = new ProfilesStatePage();
 
 	@Test(priority = 1, description = "Verifing current title")
 
@@ -105,4 +105,5 @@ public class SPA_574_TC extends TestBase {
 
 		extentLogger.pass("Verification  assending and decending order are pass");
 	}
+
 }

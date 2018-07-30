@@ -16,11 +16,11 @@ import gov.usd.utilities.Driver;
 
 public class SPA_580_TC extends TestBase {
 
-	HomePage hp = new HomePage();
+	Actions action = new Actions(Driver.getDriver());
 	
 	FederalAccountsPage fap = new FederalAccountsPage();
 
-	Actions action = new Actions(Driver.getDriver());
+	HomePage hp = new HomePage();
 
 	@Test(priority = 1, description = "Hover over the PROFILE functionality to reach Federal Accounts")
 	public void sortedFunctionality() {

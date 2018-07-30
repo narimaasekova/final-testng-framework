@@ -16,11 +16,11 @@ import gov.usd.utilities.ConfigurationReader;
 
 public class SPA_573_TC extends TestBase {
 
+	BrowserUtils br = new BrowserUtils();
+
 	HomePage hp = new HomePage();
 
 	ProfilesStatePage psp = new ProfilesStatePage();
-
-	BrowserUtils br = new BrowserUtils();
 
 	@Test(priority = 1, description = "Verifing current title")
 
@@ -41,7 +41,7 @@ public class SPA_573_TC extends TestBase {
 
 	@Test(priority = 2, description = "Profiles is clickble")
 
-	public void hoverOver() throws InterruptedException {
+	public void hoverOver() {
 
 		extentLogger = report.createTest("Profiles is clickble");
 
