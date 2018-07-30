@@ -30,7 +30,21 @@ public abstract class TestBase {
 
 	protected ExtentTest extentLogger;
 
-	@BeforeTest
+	@BeforeClass(alwaysRun = true)
+	public void setUp() {
+
+		driver = Driver.getDriver();
+
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		
+		driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
+
+		driver.manage().window().fullscreen();
+
+	}
+
+	
+	@BeforeTest(alwaysRun=true)
 	public void setUpTest() {
 
 		report = new ExtentReports();
@@ -50,19 +64,7 @@ public abstract class TestBase {
 		htmlReporter.config().setReportName("Web Orders Automated Test Reports");
 	}
 
-	@BeforeClass(alwaysRun = true)
-	public void setUp() {
-
-		driver = Driver.getDriver();
-
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		
-		driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
-
-		driver.manage().window().fullscreen();
-
-	}
-
+	
 	@AfterMethod(alwaysRun = true)
 	public void tearDown(ITestResult result) throws IOException {
 
@@ -92,13 +94,13 @@ public abstract class TestBase {
 
 	}
 
-	@AfterTest
+	@AfterTest(alwaysRun=true)
 	public void tearDownTest() {
 
 		report.flush();
 	}
 
-	@AfterClass
+	@AfterClass(alwaysRun=true)
 	public void setUpClose() {
 
 		Driver.closeDriver();
