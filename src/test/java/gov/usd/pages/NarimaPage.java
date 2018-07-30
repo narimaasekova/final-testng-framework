@@ -35,6 +35,13 @@ public class NarimaPage {
 	@FindBy(xpath="//*[contains(text(),'Sort table by descending awarded amount')]/..")
 	public WebElement clickToGetDecendingOrder;
 	
+	@FindBy(xpath="//*[@id='main-content']/div/div[2]/div[2]")
+	public WebElement LeftCornerResult;
+	
+	@FindBy(xpath="//ul[@class='nav-children__list']/li/a[.='Federal Accounts']")
+	public WebElement profilesFederalAccountsOption;
+	
+	
 	public List<Double>convertingToDouble(){
 		
 	
