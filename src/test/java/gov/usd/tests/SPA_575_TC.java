@@ -1,25 +1,30 @@
 package gov.usd.tests;
 
-import static org.testng.Assert.*;
+import static org.testng.Assert.assertEquals;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
+
 import gov.usd.TestBase.TestBase;
-import gov.usd.pages.HomePageIurii;
-import gov.usd.pages.StatePageIurii;
+import gov.usd.pages.HomePage;
+import gov.usd.pages.ProfilesStatePage;
+
 import gov.usd.utilities.BrowserUtils;
 import gov.usd.utilities.ConfigurationReader;
 import gov.usd.utilities.Driver;
 
-public class Spa_575_TC extends TestBase {
+public class SPA_575_TC extends TestBase {
+	
+	HomePage hp=new HomePage();
 
-	HomePageIurii hp = new HomePageIurii();
+	ProfilesStatePage psp = new ProfilesStatePage();
 
 	Actions action = new Actions(Driver.getDriver());
 
-	StatePageIurii sp = new StatePageIurii();
 
 	@Test(description = "Checking the sorter functionality under Percent Total", priority = 1)
 	public void titleVerification() {
@@ -27,13 +32,13 @@ public class Spa_575_TC extends TestBase {
 		// name of the test for the report
 		extentLogger = report.createTest("Checking the sorter functionality under Percent Total");
 
-		driver.get(ConfigurationReader.getProperty("url"));
+		driver.get(ConfigurationReader.getProperty("urlUSA"));
 
 		// actual title
 		String actualTitle = driver.getTitle();
 
 		// expected title
-		String expectedTitle = ConfigurationReader.getProperty("expectedTitleOfTheHomePage");
+		String expectedTitle = ConfigurationReader.getProperty("title");
 
 		assertEquals(actualTitle, expectedTitle, "Verify title of the home page");
 
@@ -49,11 +54,11 @@ public class Spa_575_TC extends TestBase {
 
 		action.moveToElement(hp.profileMenu).build().perform();
 
-		hp.statesBtn.click();
+		hp.profilesStateOption.click();
 
 		String actualUrl = driver.getCurrentUrl();
 
-		String expectedUrl = ConfigurationReader.getProperty("expectedUrlStates");
+		String expectedUrl = ConfigurationReader.getProperty("urlState");
 
 		assertEquals(actualUrl, expectedUrl, "Verify url of the States page");
 
@@ -68,16 +73,16 @@ public class Spa_575_TC extends TestBase {
 
 		BrowserUtils.waitFor(1); // wait 1 sec before click
 
-		sp.arrowPercentOfTotalUp.click(); // click on arrow button
+		psp.arrowPercentOfTotalUp.click(); // click on arrow button
 
 		List<String> actualResultOfPercent = new ArrayList<>(); // actual list
 
         //add to actual list all data from webElement
-		sp.percentOfTotalAllColumnInfo.stream().forEach(y -> actualResultOfPercent.add(y.getText()));
+		psp.percentOfTotalAllColumnInfo.stream().forEach(y -> actualResultOfPercent.add(y.getText()));
 
 		List<String> sortedResultOfPercent = new ArrayList<>();
 
-		sp.percentOfTotalAllColumnInfo.stream().forEach(x -> sortedResultOfPercent.add(x.getText()));
+		psp.percentOfTotalAllColumnInfo.stream().forEach(x -> sortedResultOfPercent.add(x.getText()));
 
 		Collections.sort(sortedResultOfPercent);//sorted list
 
@@ -92,15 +97,15 @@ public class Spa_575_TC extends TestBase {
 		
 		extentLogger = report.createTest("Check after click on arrow button down descending order"); // report descriptions
 
-		sp.arrowPercentOfTotalDown.click();
+		psp.arrowPercentOfTotalDown.click();
 
 		List<String> actualResultOfPercent = new ArrayList<>();
 
-		sp.percentOfTotalAllColumnInfo.stream().forEach(y -> actualResultOfPercent.add(y.getText()));
+		psp.percentOfTotalAllColumnInfo.stream().forEach(y -> actualResultOfPercent.add(y.getText()));
 
 		List<String> decendingResultOfPercent = new ArrayList<>();
 
-		sp.percentOfTotalAllColumnInfo.stream().forEach(y -> decendingResultOfPercent.add(y.getText()));
+		psp.percentOfTotalAllColumnInfo.stream().forEach(y -> decendingResultOfPercent.add(y.getText()));
 
 		Collections.sort(decendingResultOfPercent);
 
