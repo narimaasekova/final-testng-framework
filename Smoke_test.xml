@@ -4,15 +4,14 @@
 	<test name="Smoke test">
 
 		<classes>
-			
+
 			<class name="gov.usd.tests.SPA_261_TC"></class>
-			<class name="gov.usd.tests.SPA_572_TC"></class>
 			
+			
+
+
 		</classes>
-		
 
-	
-
-</test>
+	</test>
 
 </suite>

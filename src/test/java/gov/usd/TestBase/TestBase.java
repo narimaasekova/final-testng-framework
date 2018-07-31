@@ -30,7 +30,7 @@ public abstract class TestBase {
 
 	protected ExtentTest extentLogger;
 
-	@BeforeClass(alwaysRun = true)
+	@BeforeClass
 	public void setUp() {
 
 		driver = Driver.getDriver();
@@ -44,7 +44,7 @@ public abstract class TestBase {
 	}
 
 	
-	@BeforeTest(alwaysRun=true)
+	@BeforeTest
 	public void setUpTest() {
 
 		report = new ExtentReports();
@@ -65,7 +65,7 @@ public abstract class TestBase {
 	}
 
 	
-	@AfterMethod(alwaysRun = true)
+	@AfterMethod
 	public void tearDown(ITestResult result) throws IOException {
 
 		// checking if the test method failed
@@ -94,13 +94,13 @@ public abstract class TestBase {
 
 	}
 
-	@AfterTest(alwaysRun=true)
+	@AfterTest
 	public void tearDownTest() {
 
 		report.flush();
 	}
 
-	@AfterClass(alwaysRun=true)
+	@AfterClass
 	public void setUpClose() {
 
 		Driver.closeDriver();
