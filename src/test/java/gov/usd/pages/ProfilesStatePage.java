@@ -11,25 +11,26 @@ import org.testng.Assert;
 
 import gov.usd.utilities.Driver;
 
-
-
-public class NarimaPage {
+public class ProfilesStatePage {
 
 	private WebDriver driver;
 
-	public NarimaPage() {
+	public ProfilesStatePage() {
 
 		driver = Driver.getDriver();
 
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(xpath = "(//div[@class='nav-dropdown__parent-label'])[2]")
-	public WebElement profiles;
-
-	@FindBy(xpath = "//ul[@class='nav-children__list']/li/a[.='States']")
-	public WebElement profilesStateOption;
-
+	@FindBy(xpath="//*[contains(text(),'Sort table by ascending percent of total')]/..")
+	public WebElement arrowPercentOfTotalUp;
+	
+	@FindBy(xpath="//*[contains(text(),'Sort table by descending percent of total')]/..")
+	public WebElement arrowPercentOfTotalDown;
+	
+	@FindBy(xpath="//tr[@class='state-list__body-row']/td[3]")
+	public List<WebElement> percentOfTotalAllColumnInfo;
+	
 	@FindBy(xpath = "//tr[@class='state-list__body-row']/td[2]")
 	public List<WebElement> statesAwardedAmount;
 
@@ -38,18 +39,23 @@ public class NarimaPage {
 
 	@FindBy(xpath = "//*[contains(text(),'Sort table by descending awarded amount')]/..")
 	public WebElement clickToGetDecendingOrder;
-	
+
 	@FindBy(xpath = "//tr[@class='state-list__body-row']/td[1]")
 	public List<WebElement> states;
-	
+
 	@FindBy(xpath = "/*[contains(text(),'Sort table by descending state')]/..")
 	public WebElement clickToGetDecendingStatesOrder;
+	
+
+	@FindBy(xpath="//*[@id='main-content']/div/div[2]/div[2]")
+	public WebElement LeftCornerResult;
 	
 	
 	
 
-	/*this method  converting the given states Amount from String to Double
-	 * and returns List of double
+	/*
+	 * this method converting the given states Amount from String to Double and
+	 * returns List of double
 	 */
 
 	public List<Double> convertingToDouble() {
@@ -64,7 +70,6 @@ public class NarimaPage {
 		}
 		return prices;
 	}
+		
 
 }
-
-
