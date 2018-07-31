@@ -25,11 +25,11 @@ public class SPA_575_TC extends TestBase {
 
 	ProfilesStatePage psp = new ProfilesStatePage();
 
-	@Test(priority = 1, description = "Checking the sorter functionality under Percent Total")
+	@Test(priority = 1, description = "Home page title verification")
 	public void titleVerification() {
 
 		// name of the test for the report
-		extentLogger = report.createTest("Checking the sorter functionality under Percent Total");
+		extentLogger = report.createTest("Home page title verification");
 
 		driver.get(ConfigurationReader.getProperty("urlUSA"));
 

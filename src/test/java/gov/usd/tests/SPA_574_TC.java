@@ -92,6 +92,8 @@ public class SPA_574_TC extends TestBase {
 		Collections.sort(expectedStatesAwardedAmountAssending);
 
 		Assert.assertEquals(expectedStatesAwardedAmountAssending, actualStatesAwardedAmountAssending);
+		
+		extentLogger.pass("Verification  assending order are pass");
 
 		psp.clickToGetDecendingOrder.click();
 
@@ -103,7 +105,7 @@ public class SPA_574_TC extends TestBase {
 
 		Assert.assertEquals(expectedStatesAwardedAmountAssending, actualStatesAwardedAmountDecending);
 
-		extentLogger.pass("Verification  assending and decending order are pass");
+		extentLogger.pass("Verification decending order are pass");
 	}
 
 }

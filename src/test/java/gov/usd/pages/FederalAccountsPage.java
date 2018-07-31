@@ -61,6 +61,9 @@ package gov.usd.pages;
 
 		@FindBy(xpath = "//div[@class='results-table-cell results-table-cell_column_accountNumber']/div")
 		public List<WebElement> accountNumColomn;
+		
+		@FindBy(xpath = "//div[contains(text(),'Account Number')]")
+		public WebElement accountNumBtn;
 
 		/*
 		 * method to convert String to Integer
