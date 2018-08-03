@@ -10,22 +10,14 @@ public class SPA_261_TC extends TestBase {
 
 	HomePage hp = new HomePage();
 
-	@Test(priority = 1, description = "Launching to the home page")
-	public void titleVerification() {
+	@Test(priority = 1, description = "Home page Title verification")
+	public void verifyHomePageTitle() {
 
-		extentLogger = report.createTest("Launch to the home page");
+		extentLogger = report.createTest("Home page Title verification");
 
-		// Launch the url
-		driver.get(ConfigurationReader.getProperty("urlUSA"));
+		hp.goHomePageAndVerifyTitle();
 
-		// Verifing the title
-		String actualTitle = ConfigurationReader.getProperty("title");
-
-		String currentTitle = driver.getTitle();
-
-		Assert.assertEquals(currentTitle, actualTitle);
-
-		extentLogger.pass("Verify the title");
+		extentLogger.pass("Verified title of the Home Page");
 	}
 
 	@Test(priority = 2, description = "Verifing the logo")
@@ -33,7 +25,6 @@ public class SPA_261_TC extends TestBase {
 
 		extentLogger = report.createTest("Verifing the logo");
 
-		// Verifing is the logo displayed
 		boolean logoVerification = hp.logo.isDisplayed();
 
 		Assert.assertTrue(logoVerification);
@@ -47,7 +38,6 @@ public class SPA_261_TC extends TestBase {
 
 		extentLogger = report.createTest("Verifing is the main menu displayed");
 
-		// Verifing is the logo displayed
 		boolean menuVerification = hp.mainMenu.isDisplayed();
 
 		Assert.assertTrue(menuVerification);

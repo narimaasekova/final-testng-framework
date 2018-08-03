@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -12,7 +11,6 @@ import gov.usd.TestBase.TestBase;
 import gov.usd.pages.HomePage;
 import gov.usd.pages.ProfilesStatePage;
 import gov.usd.utilities.BrowserUtils;
-import gov.usd.utilities.ConfigurationReader;
 
 public class SPA_573_TC extends TestBase {
 
@@ -22,83 +20,73 @@ public class SPA_573_TC extends TestBase {
 
 	ProfilesStatePage psp = new ProfilesStatePage();
 
-	@Test(priority = 1, description = "Verifing current title")
+	@Test(priority = 1, description = "Home page Title verification")
+	public void verifyHomePageTitle() {
 
-	public void verificationTitle() {
+		extentLogger = report.createTest("Home page Title verification");
 
-		extentLogger = report.createTest("Verifing current title");
+		hp.goHomePageAndVerifyTitle();
 
-		driver.get(ConfigurationReader.getProperty("urlUSA"));
-
-		String currentTitle = ConfigurationReader.getProperty("title");
-
-		String actualTitle = driver.getTitle();
-
-		Assert.assertEquals(currentTitle, actualTitle, "Verifing current title");
-
-		extentLogger.pass("Verification of current title is pass");
+		extentLogger.pass("Verified title of the Home Page");
 	}
 
-	@Test(priority = 2, description = "Profiles is clickble")
+	@Test(priority = 2, description = "Check Profile State option")
 
-	public void hoverOver() {
+	public void stateUrl() {
 
-		extentLogger = report.createTest("Profiles is clickble");
+		extentLogger = report.createTest("Check Profile State option");
 
-		Actions action = new Actions(driver);
+		hp.goToProfileToStateVerifyUrl();
 
-		action.moveToElement(hp.profileMenu).perform();
-
-		Assert.assertTrue(hp.profilesStateOption.isDisplayed());
-
-		hp.profilesStateOption.click();
-
-		extentLogger.pass("Profiles is clickble is pass");
-	}
-
-	@Test(priority = 3, description = "Verifing state url")
-
-	public void statesUrl() {
-
-		extentLogger = report.createTest("Verifing state url");
-
-		String expectedUrl = ConfigurationReader.getProperty("urlState");
-
-		String actualUrl = driver.getCurrentUrl();
-
-		Assert.assertEquals(expectedUrl, actualUrl);
-
-		extentLogger.pass("Verification  state url is pass");
+		extentLogger.pass("Verify url of State page");
 
 	}
 
-	@Test(priority = 4, description = "Verifing assending and decending order of states")
+	@Test(priority = 3, description = "Check ascending order of states")
 
-	public void sortStates() {
+	public void ascending() {
 
-		extentLogger = report.createTest("Verifing assending and decending order of states");
+		extentLogger = report.createTest("Check ascending order of states");
 
 		List<String> actualStatesAssending = new ArrayList<>();
 
 		List<String> expectedStatesAssending = new ArrayList<>();
 
-		psp.states.stream().forEach(x -> actualStatesAssending.add(x.getText().trim()));
+		psp.states.stream().limit(9).forEach(x -> actualStatesAssending.add(x.getText()));
 
-		expectedStatesAssending.addAll(actualStatesAssending);
+		psp.states.stream().limit(9).forEach(x -> expectedStatesAssending.add(x.getText()));
 
 		Collections.sort(expectedStatesAssending);
 
-		Assert.assertEquals(expectedStatesAssending, actualStatesAssending);
+		Assert.assertEquals(actualStatesAssending,expectedStatesAssending);
+		
+		extentLogger.pass("Verify ascending order of state");
 
-		BrowserUtils.waitFor(1);
+		
+	}
+		
+	@Test(priority = 4, description = "Check descending order of states")
+
+	public void descending() {
+		
+		extentLogger = report.createTest("Check descending order of states");
 
 		psp.clickToGetDecendingStatesOrder.click();
+		
+		List<String> actualStatesAssending = new ArrayList<>();
+
+		List<String> expectedStatesAssending = new ArrayList<>();
+
+		psp.states.stream().limit(9).forEach(x -> actualStatesAssending.add(x.getText().trim()));
+
+		psp.states.stream().limit(9).forEach(x -> expectedStatesAssending.add(x.getText().trim()));
 
 		Collections.reverse(expectedStatesAssending);
 
 		Assert.assertEquals(expectedStatesAssending, actualStatesAssending);
-
-		extentLogger.pass("Verification of  assending and decending order of states are pass");
+		
+		extentLogger.pass("Verify descending order of state");
 	}
-
 }
+
+

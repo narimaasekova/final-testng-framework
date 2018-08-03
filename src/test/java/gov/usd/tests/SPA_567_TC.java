@@ -25,41 +25,22 @@ public class SPA_567_TC extends TestBase {
 
 	FederalAccountsPage fap = new FederalAccountsPage();
 
-	@Test(priority = 1, description = "Home page title verification")
-	public void titleVerification() {
+	@Test(priority = 1, description = "Home page Title verification")
+	public void verifyHomePageTitle() {
 
-		// name of the test for the report
-		extentLogger = report.createTest("Home page title verification");
+		extentLogger = report.createTest("Home page Title verification");
 
-		driver.get(ConfigurationReader.getProperty("urlUSA"));
+		hp.goHomePageAndVerifyTitle();
 
-		// actual title
-		String actualTitle = driver.getTitle();
-
-		// expected title
-		String expectedTitle = ConfigurationReader.getProperty("title");
-
-		assertEquals(actualTitle, expectedTitle, "Verify title of the home page");
-
-		// name for the verification
 		extentLogger.pass("Verified title of the Home Page");
-
 	}
 
-	@Test(priority = 2, description = "Hover over the PROFILE functionality to reach Federal Accounts link")
+	@Test(priority = 2, description = "Hover over the PROFILE to reach Federal Accounts link")
 	public void openFederalAccounts() {
 
-		extentLogger = report.createTest("Hover over the PROFILE functionality to reach Federal Accounts link");
+		extentLogger = report.createTest("Hover over the PROFILE to reach Federal Accounts link");
 
-		action.moveToElement(hp.profileMenu).build().perform();
-
-		hp.profilesFederalAccountsOption.click();
-
-		String actualUrl = driver.getCurrentUrl();
-
-		String expectedUrl = ConfigurationReader.getProperty("urlFederal");
-
-		assertEquals(actualUrl, expectedUrl, "Verify url of the Federal Accounts page");
+		fap.goProfileGoFederalAccVerUrl();
 
 		extentLogger.pass("Verify url of the Federal Accounts page");
 

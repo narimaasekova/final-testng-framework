@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -13,7 +12,6 @@ import gov.usd.pages.HomePage;
 
 import gov.usd.pages.ProfilesStatePage;
 import gov.usd.utilities.BrowserUtils;
-import gov.usd.utilities.ConfigurationReader;
 
 public class SPA_574_TC extends TestBase {
 
@@ -23,57 +21,29 @@ public class SPA_574_TC extends TestBase {
 
 	ProfilesStatePage psp = new ProfilesStatePage();
 
-	@Test(priority = 1, description = "Verifing current title")
+	@Test(priority = 1, description = "Home page Title verification")
+	public void verifyHomePageTitle() {
 
-	public void verificationTitle() {
+		extentLogger = report.createTest("Home page Title verification");
 
-		extentLogger = report.createTest("Verifing current title");
+		hp.goHomePageAndVerifyTitle();
 
-		driver.get(ConfigurationReader.getProperty("urlUSA"));
-
-		String currentTitle = ConfigurationReader.getProperty("title");
-
-		String actualTitle = driver.getTitle();
-
-		Assert.assertEquals(currentTitle, actualTitle, "Verifing current title");
-
-		extentLogger.pass("Verification of current title is pass");
+		extentLogger.pass("Verified title of the Home Page");
 	}
 
-	@Test(priority = 2, description = "Profiles is clickble")
+	@Test(priority = 2, description = "Check Profile State option")
 
-	public void hoverOver() throws InterruptedException {
+	public void stateUrl() {
 
-		extentLogger = report.createTest("Profiles is clickble");
+		extentLogger = report.createTest("Check Profile State option");
 
-		Actions action = new Actions(driver);
+		hp.goToProfileToStateVerifyUrl();
 
-		action.moveToElement(hp.profileMenu).perform();
-
-		Assert.assertTrue(hp.profilesStateOption.isDisplayed());
-
-		hp.profilesStateOption.click();
-
-		extentLogger.pass("Profiles is clickble is pass");
-	}
-
-	@Test(priority = 3, description = "Verifing state url")
-
-	public void statesUrl() {
-
-		extentLogger = report.createTest("Verifing state url");
-
-		String expectedUrl = ConfigurationReader.getProperty("urlState");
-
-		String actualUrl = driver.getCurrentUrl();
-
-		Assert.assertEquals(expectedUrl, actualUrl);
-
-		extentLogger.pass("Verification  state url is pass");
+		extentLogger.pass("Verify url of State page");
 
 	}
 
-	@Test(priority = 4, description = "Verifing assending and decending order of statesAwardedAmount")
+	@Test(priority = 3, description = "Verifing assending and decending order of statesAwardedAmount")
 
 	public void sortStatesAwardedAmount() {
 

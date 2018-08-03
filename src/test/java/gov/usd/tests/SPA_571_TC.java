@@ -25,61 +25,36 @@ public class SPA_571_TC extends TestBase {
 
 	ProfilesStatePage psp = new ProfilesStatePage();
 
-	@Test(priority = 1, description = "Title verification")
-	public void verificationTitle() {
+	@Test(priority = 1, description = "Home page Title verification")
+	public void verifyHomePageTitle() {
 
-		extentLogger = report.createTest("Title verification");
+		extentLogger = report.createTest("Home page Title verification");
 
-		driver.get(ConfigurationReader.getProperty("urlUSA"));
-
-		String currentTitle = ConfigurationReader.getProperty("title");
-
-		String actualTitle = driver.getTitle();
-
-		Assert.assertEquals(currentTitle, actualTitle, "Veriffying current title");
+		hp.goHomePageAndVerifyTitle();
 
 		extentLogger.pass("Verified title of the Home Page");
 	}
+	
 
-	@Test(priority = 2, description = "Profiles is clickble")
-	public void hoverOver() throws InterruptedException {
+	@Test(priority = 2, description = "Hover over the PROFILE to reach Federal Accounts link")
+	public void openFederalAccounts() {
 
-		extentLogger = report.createTest("Profiles is clickble");
+		extentLogger = report.createTest("Hover over the PROFILE to reach Federal Accounts link");
+		
+		fap.goProfileGoFederalAccVerUrl();
 
-		Actions action = new Actions(driver);
-
-		action.moveToElement(hp.profileMenu).perform();
-
-		Assert.assertTrue(hp.profilesFederalAccountsOption.isDisplayed());
-
-		hp.profilesFederalAccountsOption.click();
-
-		extentLogger.pass("Verified Profile of the Home Page");
-	}
-
-	@Test(priority = 3, description = "Verifying federal url")
-	public void statesUrl() {
-
-		extentLogger = report.createTest("Verifying federal url");
-
-		String expectedUrl = ConfigurationReader.getProperty("urlFederal");
-
-		String actualUrl = driver.getCurrentUrl();
-
-		Assert.assertEquals(expectedUrl, actualUrl);
-
-		extentLogger.pass("Verified federal url of the Federal Page");
+		extentLogger.pass("Verify url of the Federal Accounts page");
 
 	}
 
-	@Test(priority = 4, description = "Check assending and decending order")
-	public void sortBudgetaryResources() {
+	@Test(priority = 3, description = "Check ascending order")
+	public void ascending() {
 
-		extentLogger = report.createTest("Check assending and decending order");
+		extentLogger = report.createTest("Check ascending order");
 
-		BrowserUtils.waitFor(4);
+		BrowserUtils.waitFor(1);
 
-		fap.clickToGetAssendingOrder.click();
+		fap.clickToGetAscendingOrder.click();
 
 		BrowserUtils.waitFor(1);
 
@@ -89,16 +64,17 @@ public class SPA_571_TC extends TestBase {
 
 		expectedFederalBudgetaryResourcesAssending.addAll(actualFederalBudgetaryResources);
 
-		// System.out.println(actualFederalBudgetaryResources);
-		// System.out.println(expectedFederalBudgetaryResourcesAssending);
-
 		Collections.sort(expectedFederalBudgetaryResourcesAssending);
 
 		Assert.assertEquals(expectedFederalBudgetaryResourcesAssending, actualFederalBudgetaryResources);
 
-		extentLogger.pass("Verified scending order");
+		extentLogger.pass("Verified ascending order");
+	}
+		
+		@Test(priority = 4, description = "Check descending order")
+		public void descending() {
 
-		fap.clickToGetDecendingOrder.click();
+		fap.clickToGetDescendingOrder.click();
 
 		BrowserUtils.waitFor(1);
 
@@ -111,9 +87,6 @@ public class SPA_571_TC extends TestBase {
 		Collections.sort(expectedFederalBudgetaryResourcesDescending);
 
 		Collections.reverse(expectedFederalBudgetaryResourcesDescending);
-
-		// System.out.println(expectedFederalBudgetaryResourcesDescending);
-		// System.out.println(actualFederalBudgetaryResources1);
 
 		Assert.assertEquals(expectedFederalBudgetaryResourcesDescending, actualFederalBudgetaryResources1);
 

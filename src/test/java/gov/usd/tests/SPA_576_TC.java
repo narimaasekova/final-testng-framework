@@ -1,6 +1,5 @@
 package gov.usd.tests;
 
-import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -9,7 +8,6 @@ import gov.usd.pages.HomePage;
 
 import gov.usd.pages.ProfilesStatePage;
 import gov.usd.utilities.BrowserUtils;
-import gov.usd.utilities.ConfigurationReader;
 
 public class SPA_576_TC extends TestBase {
 
@@ -19,53 +17,29 @@ public class SPA_576_TC extends TestBase {
 
 	ProfilesStatePage psp = new ProfilesStatePage();
 
-	@Test(priority = 1, description = "Title verification")
-	public void verificationTitle() {
+	@Test(priority = 1, description = "Home page Title verification")
+	public void verifyHomePageTitle() {
 
-		extentLogger = report.createTest("Title verification");
+		extentLogger = report.createTest("Home page Title verification");
 
-		driver.get(ConfigurationReader.getProperty("urlUSA"));
-
-		String currentTitle = ConfigurationReader.getProperty("title");
-
-		String actualTitle = driver.getTitle();
-
-		Assert.assertEquals(currentTitle, actualTitle, "Veriffying current title");
+		hp.goHomePageAndVerifyTitle();
 
 		extentLogger.pass("Verified title of the Home Page");
 	}
 
-	@Test(priority = 2, description = "Profiles is clickble")
-	public void hoverOver() throws InterruptedException {
+	@Test(priority = 2, description = "Check Profile State option")
 
-		extentLogger = report.createTest("Profiles is clickble");
+	public void stateUrl() {
 
-		Actions action = new Actions(driver);
+		extentLogger = report.createTest("Check Profile State option");
 
-		action.moveToElement(hp.profileMenu).perform();
+		hp.goToProfileToStateVerifyUrl();
 
-		Assert.assertTrue(hp.profilesStateOption.isDisplayed());
+		extentLogger.pass("Verify url of State page");
 
-		extentLogger.pass("Verified Profile of the Home Page");
-
-		hp.profilesStateOption.click();
 	}
 
-	@Test(priority = 3, description = "Check state url")
-	public void statesUrl() {
-
-		extentLogger = report.createTest("Check state url");
-
-		String expectedUrl = ConfigurationReader.getProperty("urlState");
-
-		String actualUrl = driver.getCurrentUrl();
-
-		Assert.assertEquals(expectedUrl, actualUrl);
-
-		extentLogger.pass("Verified state url of the Federal Page");
-	}
-
-	@Test(priority = 4, description = "Check number of results")
+	@Test(priority = 3, description = "Check number of results")
 	public void numberOfResults() {
 
 		extentLogger = report.createTest("Check number of results");

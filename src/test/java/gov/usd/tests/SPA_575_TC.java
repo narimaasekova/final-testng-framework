@@ -14,7 +14,6 @@ import gov.usd.pages.HomePage;
 import gov.usd.pages.ProfilesStatePage;
 
 import gov.usd.utilities.BrowserUtils;
-import gov.usd.utilities.ConfigurationReader;
 import gov.usd.utilities.Driver;
 
 public class SPA_575_TC extends TestBase {
@@ -25,43 +24,25 @@ public class SPA_575_TC extends TestBase {
 
 	ProfilesStatePage psp = new ProfilesStatePage();
 
-	@Test(priority = 1, description = "Home page title verification")
-	public void titleVerification() {
+	@Test(priority = 1, description = "Home page Title verification")
+	public void verifyHomePageTitle() {
 
-		// name of the test for the report
-		extentLogger = report.createTest("Home page title verification");
+		extentLogger = report.createTest("Home page Title verification");
 
-		driver.get(ConfigurationReader.getProperty("urlUSA"));
+		hp.goHomePageAndVerifyTitle();
 
-		// actual title
-		String actualTitle = driver.getTitle();
-
-		// expected title
-		String expectedTitle = ConfigurationReader.getProperty("title");
-
-		assertEquals(actualTitle, expectedTitle, "Verify title of the home page");
-
-		// name for the verification
 		extentLogger.pass("Verified title of the Home Page");
-
 	}
 
-	@Test(priority = 2, description = "Hover over the PROFILE functionality to reach States link")
-	public void openState() {
+	@Test(priority = 2, description = "Check Profile State option")
 
-		extentLogger = report.createTest("Hover over the PROFILE functionality to reach States link");
+	public void stateUrl() {
 
-		action.moveToElement(hp.profileMenu).build().perform();
+		extentLogger = report.createTest("Check Profile State option");
 
-		hp.profilesStateOption.click();
+		hp.goToProfileToStateVerifyUrl();
 
-		String actualUrl = driver.getCurrentUrl();
-
-		String expectedUrl = ConfigurationReader.getProperty("urlState");
-
-		assertEquals(actualUrl, expectedUrl, "Verify url of the States page");
-
-		extentLogger.pass("Verify url of the States page");
+		extentLogger.pass("Verify url of State page");
 
 	}
 

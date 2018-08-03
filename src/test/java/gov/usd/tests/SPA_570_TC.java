@@ -18,49 +18,21 @@ public class SPA_570_TC extends TestBase {
 	FederalAccountsPage fap = new FederalAccountsPage();
 
 	HomePage hp = new HomePage();
+	
+	@Test(priority = 1, description = "Hover over the PROFILE to reach Federal Accounts link")
+	public void openFederalAccounts() {
 
-	@Test(priority = 1, description = "Hover over the PROFILE functionality to reach Federal Accounts")
-	public void profileFunctionality() {
-
-		extentLogger = report.createTest("Hover over the PROFILE functionality to reach Federal Accounts");
-		// Navigate to Profile then Federal Accounts and click on the last
+		extentLogger = report.createTest("Hover over the PROFILE to reach Federal Accounts link");
 
 		driver.get(ConfigurationReader.getProperty("urlUSA"));
+		
+		fap.goProfileGoFederalAccVerUrl();
 
-		action.moveToElement(hp.profileMenu).build().perform();
+		extentLogger.pass("Verify url of the Federal Accounts page");
 
-		hp.profilesFederalAccountsOption.click();
-
-		extentLogger.pass("Navigate to Profile then Federal Accounts and click on the last");
 	}
 
-	@Test(priority = 2, description = "Check url and title in order to verify right page")
-	public void titleAndUrlVerifing() {
-
-		extentLogger = report.createTest("Check url in order to verify right page");
-
-		// Asserting url
-		String currentUrlForFederalAccountProfile = driver.getCurrentUrl();
-
-		String acctualUrlForFederalAccountProfile = ConfigurationReader.getProperty("urlFederal");
-
-		Assert.assertEquals(currentUrlForFederalAccountProfile, acctualUrlForFederalAccountProfile);
-
-		extentLogger.pass("Verify the current url is assert to actual url");
-
-		// Asserting title
-		extentLogger = report.createTest("Check title in order to verify right page");
-
-		String actualTitle = ConfigurationReader.getProperty("title");
-
-		String currentTitle = driver.getTitle();
-
-		Assert.assertEquals(currentTitle, actualTitle);
-
-		extentLogger.pass("Verify the current title is assert to actual title on this page");
-	}
-
-	@Test(priority = 3, description = "Click on the Managing Agency button, it should sort the results by alphabet or assending order")
+	@Test(priority = 2, description = "Click on the Managing Agency button, it should sort the results by alphabet or assending order")
 	public void managingAgencyFunctionality() throws InterruptedException {
 
 		extentLogger = report.createTest(
