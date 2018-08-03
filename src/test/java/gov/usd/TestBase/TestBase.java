@@ -39,7 +39,7 @@ public abstract class TestBase {
 		
 		driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
 
-		driver.manage().window().fullscreen();
+	//	driver.manage().window().fullscreen();
 
 	}
 
@@ -103,7 +103,7 @@ public abstract class TestBase {
 	@AfterClass
 	public void setUpClose() {
 
-		Driver.closeDriver();
+		//Driver.closeDriver();
 	}
 
 }
