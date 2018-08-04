@@ -23,7 +23,6 @@ package gov.usd.pages;
 		}
 
 
-
 		@FindBy(xpath="//*[@id=\"main-content\"]/div/div[3]/ul/li[6]/button")
 		public WebElement nextPagerBtn;
 

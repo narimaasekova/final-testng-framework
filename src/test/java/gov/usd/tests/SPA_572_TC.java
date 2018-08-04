@@ -20,7 +20,7 @@ import gov.usd.utilities.BrowserUtils;
 
 		HomePage hp=new HomePage();
 
-	
+		
 		ProfilesStatePage psp = new ProfilesStatePage();
 		
 		@Test(priority = 1, description = "Title verification")
@@ -92,5 +92,4 @@ import gov.usd.utilities.BrowserUtils;
 		}
 		
 	}
-	
 

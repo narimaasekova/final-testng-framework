@@ -16,7 +16,7 @@ import gov.usd.utilities.Driver;
 
 public class SPA_580_TC extends TestBase {
 
-	Actions action = new Actions(Driver.getDriver());
+Actions action = new Actions(Driver.getDriver());
 	
 	FederalAccountsPage fap = new FederalAccountsPage();
 

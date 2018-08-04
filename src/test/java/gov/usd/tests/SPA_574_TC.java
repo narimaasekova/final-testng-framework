@@ -18,7 +18,6 @@ import gov.usd.utilities.ConfigurationReader;
 public class SPA_574_TC extends TestBase {
 
 	BrowserUtils br = new BrowserUtils();
-
 	HomePage hp = new HomePage();
 
 	ProfilesStatePage psp = new ProfilesStatePage();
