@@ -54,6 +54,13 @@ public class FederalAccountsPage {
 
 	@FindBy(xpath = "//div[@class='header-icons']/button[2]")
 	public WebElement descendAccountNumBtn;
+	
+	@FindBy(xpath = "//div[contains(text(),'Account Name')]")
+	public WebElement managingAccountName;
+	
+	@FindBy(xpath = "//div[@class='results-table-cell results-table-cell_column_accountName']")
+	public List<WebElement> accountNameRow;
+	
 
 	/*
 	 * method to convert String to Integer

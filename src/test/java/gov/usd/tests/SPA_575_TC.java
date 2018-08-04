@@ -27,29 +27,22 @@ public class SPA_575_TC extends TestBase {
 	@Test(priority = 1, description = "Home page Title verification")
 	public void verifyHomePageTitle() {
 
-		extentLogger = report.createTest("Home page Title verification");
-
 		hp.goHomePageAndVerifyTitle();
 
-		extentLogger.pass("Verified title of the Home Page");
 	}
 
 	@Test(priority = 2, description = "Check Profile State option")
 
 	public void stateUrl() {
 
-		extentLogger = report.createTest("Check Profile State option");
 
 		hp.goToProfileToStateVerifyUrl();
 
-		extentLogger.pass("Verify url of State page");
 
 	}
 
 	@Test(priority = 3, description = "Check after click on arrow button up ascending order")
 	public void ascendingOrder() {
-
-		extentLogger = report.createTest("Check after click on arrow button up ascending order"); // report descriptions
 
 		BrowserUtils.waitFor(1); // wait 1 sec before click
 
@@ -68,15 +61,10 @@ public class SPA_575_TC extends TestBase {
 
 		assertEquals(actualResultOfPercent, sortedResultOfPercent, "verify ascending order");
 
-		extentLogger.pass("Verify ascending order"); // report pass/fail
-
 	}
 
 	@Test(priority = 4, description = "Check after click on arrow button down descending order")
 	public void desendingOrder() {
-
-		extentLogger = report.createTest("Check after click on arrow button down descending order"); // report
-																										// descriptions
 
 		psp.arrowPercentOfTotalDown.click();
 
@@ -94,7 +82,6 @@ public class SPA_575_TC extends TestBase {
 
 		assertEquals(actualResultOfPercent, decendingResultOfPercent);
 
-		extentLogger.pass("Verify descending order"); // report pass/fail
 
 	}
 

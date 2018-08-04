@@ -24,30 +24,22 @@ public class SPA_574_TC extends TestBase {
 	@Test(priority = 1, description = "Home page Title verification")
 	public void verifyHomePageTitle() {
 
-		extentLogger = report.createTest("Home page Title verification");
-
 		hp.goHomePageAndVerifyTitle();
 
-		extentLogger.pass("Verified title of the Home Page");
 	}
 
 	@Test(priority = 2, description = "Check Profile State option")
 
 	public void stateUrl() {
 
-		extentLogger = report.createTest("Check Profile State option");
-
 		hp.goToProfileToStateVerifyUrl();
 
-		extentLogger.pass("Verify url of State page");
 
 	}
 
 	@Test(priority = 3, description = "Verifing assending and decending order of statesAwardedAmount")
 
 	public void sortStatesAwardedAmount() {
-
-		extentLogger = report.createTest("Verifing assending and decending order of statesAwardedAmount");
 
 		BrowserUtils.waitFor(1);
 
@@ -75,7 +67,6 @@ public class SPA_574_TC extends TestBase {
 
 		Assert.assertEquals(expectedStatesAwardedAmountAssending, actualStatesAwardedAmountDecending);
 
-		extentLogger.pass("Verification decending order are pass");
 	}
 
 }

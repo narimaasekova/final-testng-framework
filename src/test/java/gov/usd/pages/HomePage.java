@@ -66,7 +66,7 @@ public class HomePage {
 		
 		HomePage hp=new HomePage();
 		
-		action.moveToElement(hp.profileMenu).perform();
+		action.moveToElement(hp.profileMenu).build().perform();
 		
 		hp.profilesStateOption.click();
 		

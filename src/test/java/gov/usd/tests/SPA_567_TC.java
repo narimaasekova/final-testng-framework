@@ -14,7 +14,6 @@ import gov.usd.pages.FederalAccountsPage;
 import gov.usd.pages.HomePage;
 
 import gov.usd.utilities.BrowserUtils;
-import gov.usd.utilities.ConfigurationReader;
 import gov.usd.utilities.Driver;
 
 public class SPA_567_TC extends TestBase {
@@ -28,28 +27,18 @@ public class SPA_567_TC extends TestBase {
 	@Test(priority = 1, description = "Home page Title verification")
 	public void verifyHomePageTitle() {
 
-		extentLogger = report.createTest("Home page Title verification");
-
 		hp.goHomePageAndVerifyTitle();
-
-		extentLogger.pass("Verified title of the Home Page");
 	}
 
 	@Test(priority = 2, description = "Hover over the PROFILE to reach Federal Accounts link")
 	public void openFederalAccounts() {
 
-		extentLogger = report.createTest("Hover over the PROFILE to reach Federal Accounts link");
-
 		fap.goProfileGoFederalAccVerUrl();
-
-		extentLogger.pass("Verify url of the Federal Accounts page");
 
 	}
 
 	@Test(priority = 3, description = "Check after click on Account Number btn gives descending order")
 	public void descendingOrder() {
-
-		extentLogger = report.createTest("Check after click on Account Number btn gives descending order");
 
 		BrowserUtils.waitFor(1);
 
@@ -71,14 +60,10 @@ public class SPA_567_TC extends TestBase {
 
 		assertEquals(actualResultOfNumber, reverseResultOfNumber, "verify descending order");
 
-		extentLogger.pass("Verify descending order");
-
 	}
 
 	@Test(priority = 4, description = "Check after click on Account Number btn gives ascending order")
 	public void desendingOrder() {
-
-		extentLogger = report.createTest("Check after click on Account Number btn gives ascending order"); // report
 
 		fap.accountNumBtn.click();
 
@@ -95,8 +80,6 @@ public class SPA_567_TC extends TestBase {
 		Collections.sort(sortedResultOfNumber);
 
 		assertEquals(actualResultOfNumber, sortedResultOfNumber, "verify descending order");
-
-		extentLogger.pass("Verify ascending order"); // report pass/fail
 
 	}
 

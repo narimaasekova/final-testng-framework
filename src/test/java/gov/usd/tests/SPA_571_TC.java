@@ -28,29 +28,20 @@ public class SPA_571_TC extends TestBase {
 	@Test(priority = 1, description = "Home page Title verification")
 	public void verifyHomePageTitle() {
 
-		extentLogger = report.createTest("Home page Title verification");
-
 		hp.goHomePageAndVerifyTitle();
 
-		extentLogger.pass("Verified title of the Home Page");
 	}
 	
 
 	@Test(priority = 2, description = "Hover over the PROFILE to reach Federal Accounts link")
 	public void openFederalAccounts() {
 
-		extentLogger = report.createTest("Hover over the PROFILE to reach Federal Accounts link");
-		
 		fap.goProfileGoFederalAccVerUrl();
-
-		extentLogger.pass("Verify url of the Federal Accounts page");
 
 	}
 
 	@Test(priority = 3, description = "Check ascending order")
 	public void ascending() {
-
-		extentLogger = report.createTest("Check ascending order");
 
 		BrowserUtils.waitFor(1);
 
@@ -68,7 +59,6 @@ public class SPA_571_TC extends TestBase {
 
 		Assert.assertEquals(expectedFederalBudgetaryResourcesAssending, actualFederalBudgetaryResources);
 
-		extentLogger.pass("Verified ascending order");
 	}
 		
 		@Test(priority = 4, description = "Check descending order")
@@ -89,8 +79,6 @@ public class SPA_571_TC extends TestBase {
 		Collections.reverse(expectedFederalBudgetaryResourcesDescending);
 
 		Assert.assertEquals(expectedFederalBudgetaryResourcesDescending, actualFederalBudgetaryResources1);
-
-		extentLogger.pass("Verified descending order");
 
 	}
 

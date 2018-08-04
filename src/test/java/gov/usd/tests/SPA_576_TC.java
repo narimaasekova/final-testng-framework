@@ -20,29 +20,21 @@ public class SPA_576_TC extends TestBase {
 	@Test(priority = 1, description = "Home page Title verification")
 	public void verifyHomePageTitle() {
 
-		extentLogger = report.createTest("Home page Title verification");
-
 		hp.goHomePageAndVerifyTitle();
 
-		extentLogger.pass("Verified title of the Home Page");
 	}
 
 	@Test(priority = 2, description = "Check Profile State option")
 
 	public void stateUrl() {
-
-		extentLogger = report.createTest("Check Profile State option");
-
+		
+		BrowserUtils.waitFor(1);
 		hp.goToProfileToStateVerifyUrl();
-
-		extentLogger.pass("Verify url of State page");
 
 	}
 
 	@Test(priority = 3, description = "Check number of results")
 	public void numberOfResults() {
-
-		extentLogger = report.createTest("Check number of results");
 
 		BrowserUtils.waitFor(1);
 
@@ -52,7 +44,6 @@ public class SPA_576_TC extends TestBase {
 
 		Assert.assertEquals(resultLeftCorner, resultCounted);
 
-		extentLogger.pass("Verified number of results");
 	}
 
 }

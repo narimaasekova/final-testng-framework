@@ -20,13 +20,9 @@ public class SPA_580_TC extends TestBase {
 	@Test(priority = 1, description = "Hover over the PROFILE to reach Federal Accounts link")
 	public void openFederalAccounts() {
 
-		extentLogger = report.createTest("Hover over the PROFILE to reach Federal Accounts link");
-
 		driver.get(ConfigurationReader.getProperty("urlUSA"));
 
 		fap.goProfileGoFederalAccVerUrl();
-
-		extentLogger.pass("Verify url of the Federal Accounts page");
 
 	}
 
@@ -45,14 +41,11 @@ public class SPA_580_TC extends TestBase {
 				.createTest("Before comparing ascending and actual >results from Account Number functionality");
 
 		Assert.assertNotEquals(actualList, expRes);
-		extentLogger.pass(
-				"After comparing ascending and actual results from Account Number functionality and having result");
+		
 	}
 	
 	@Test(priority = 3, description = "Check descending order")
 	public void descending() {
-
-		extentLogger = report.createTest("Before comparing descending and actual >results from Account Number functionality");
 		
 		List<Integer> actualList = fap.convertingToInteger();
 
@@ -63,6 +56,5 @@ public class SPA_580_TC extends TestBase {
 		fap.descendAccountNumBtn.click();
 	
 		Assert.assertEquals(actualList, expRes);
-		extentLogger.pass("After comparing descending and actual results from Account Number functionality and having result");
 	}
 }
