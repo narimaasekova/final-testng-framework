@@ -1,7 +1,5 @@
 package gov.usd.pages;
 
-import java.util.ArrayList;
-import java.util.List;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -36,6 +34,11 @@ public class HomePage {
 	@FindBy(xpath = "//ul[@class='full-menu__list']")
 	public WebElement mainMenu;
 	
+	@FindBy(xpath = "//*[@id=\"app\"]/div/div/div[1]/header/nav/div/div[4]/ul/li[1]/a")
+	public WebElement spendingExplorer;
+	
+	@FindBy(xpath = "//*[@id=\"app\"]/div/div/div[1]/header/nav/div/div[4]/ul/li[3]/div/div/ul/li[1]/a")
+	public WebElement agencies;
 	
 	
 }

@@ -3,16 +3,16 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="gov.usd.tests.SPA_573_Test">
+      <class name="gov.usd.tests.SPA_536_TC">
         <methods>
-          <include name="sortStates"/>
           <include name="setUp"/>
           <include name="tearDown"/>
+          <include name="potDownButtonActive"/>
           <include name="setUpTest"/>
           <include name="tearDownTest"/>
           <include name="setUpClose"/>
         </methods>
-      </class> <!-- gov.usd.tests.SPA_573_Test -->
+      </class> <!-- gov.usd.tests.SPA_536_TC -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
